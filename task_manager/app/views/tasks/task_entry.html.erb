@@ -1,0 +1,19 @@
+<h1>Create a task</h1>
+<%= form_tag :action => 'task_entry' do %>
+<p>Task assigned to:
+<%= text_field_tag 'recipient_name' , @recipient %></p>
+<p>Task:
+<%= text_field_tag 'task_description' , @description %></p>
+<p>Due date:
+<%= text_field_tag 'due_date' , @due_date %></p>
+<%= submit_tag 'Save new task' %>
+<% end %>
+<h2>Current tasks:</h2>
+<ul>
+<% @tasks.each do |task| %>
+<p>Task:</p><br>
+	<li><%= task.recipient %></li>
+	<li><%= task.description %></li>
+	<li><%= task.due_date %></li>
+		<% end %>
+</ul>
